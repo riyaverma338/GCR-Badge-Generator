@@ -135,7 +135,7 @@
   }
 
   .preview-panel {
-    padding: 36px 0;
+    padding: 17px 0;
     flex: 1;
     display: flex;
     align-items: center;
@@ -171,21 +171,11 @@
 .title>span.GCR{
   font-weight: 600;
 }
-<<<<<<< HEAD
-.social-icons{
-  display: flex;
-  flex-direction: row;
-}
-.social-icons>a>img{
-height: 30px;
-width: 30px;
-}
-=======
 .social-icons>a>img {
    width: 40px;
    height: 40px;
    list-style: none;
-   margin-top: 100%;
+   margin-top: 17%;
    transition: 0.5s;
    transform: translate(0, 0px);
   }
@@ -194,7 +184,6 @@ width: 30px;
 }
 
 
->>>>>>> 20072e2e8e7c0061009f8a8743fbd6e9c58cf25d
   @media screen and (max-width: 860px) {
     header {
       height: 56px;
@@ -263,10 +252,11 @@ width: 30px;
       <a href="http://linkedin.com/in/riya-verma-7495a91aa"><img src="./linkedin logo.png"style="height:100px;width:100px;" alt="linkedin"></a>
       <a href="https://twitter.com/vermariya12"><img src="./twitter logo.png"style="height:100px;width:100px;" alt="twitter"></a>
     </div>
+    GCR Facilitator Program Badge Generator based on 
+    <a href="https://github.com/DevFest-India/badge-devfest">DevFest India Badge Generator</a>
     </div>
-    <div class="credits">
-      GCR Facilitator Program Badge Generator based on 
-      <a href="https://github.com/DevFest-India/badge-devfest">DevFest India Badge Generator</a>
+  
+    
      
   <div class="preview-panel">
     
@@ -279,8 +269,7 @@ width: 30px;
       </svg>
     </div>
   </div>
-  
-</div>
+ 
 
 <script>
   const canvas = document.querySelector('canvas')
@@ -300,13 +289,13 @@ width: 30px;
       case 'original': {
         original.setAttribute('selected', '')
         square.removeAttribute('selected')
-        circle.removeAttribute('selected')
+
         break
       }
       case 'square': {
         square.setAttribute('selected', '')
         original.removeAttribute('selected')
-        circle.removeAttribute('selected')
+  
         break
       }
     }
@@ -375,8 +364,10 @@ width: 30px;
     if(category==='Milestone 1'){
       const badge=new Image()
       badge.src='./badge1.svg'
+      const bheight=badge.height/badge.width*canvas.width
+      const by=canvas.height-bheight
       badge.onload = function(){
-    ctx.drawImage(badge, 400, 300, 100, 100)
+    ctx.drawImage(badge,0,0,100,100)
   }
   }
     ctx.fillStyle = '#000'
@@ -399,7 +390,7 @@ width: 30px;
       ctx.fillStyle='#008000'
     }
 
-    ctx.fillText("Milestone", canvas.width / 2, fontY)
+    ctx.fillText(category, canvas.width / 2, fontY)
 
     if (shape === 'circle') {
       ctx.globalCompositeOperation='destination-in'

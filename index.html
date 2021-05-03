@@ -42,7 +42,6 @@
     height: 76px;
     width: 100%;
     display: flex;
-    position: fixed;
     top: 0;
     align-items: center;
     justify-content: center;
@@ -85,7 +84,7 @@
     color: #fff;
     font-size: 15px;
     border-radius: 4px;
-    margin-top: 40px;
+    margin-top: 15px;
     padding: 10px 12px;
     box-shadow: var(--shadow-elevation-1);
     background-color: var(--button-color);
@@ -175,12 +174,18 @@
 .title>span.GCR{
   font-weight: 600;
 }
+.social-icons{
+  text-align: center;
+  margin-bottom: 25px;
+}
 .social-icons>a>img {
    width: 40px;
    height: 40px;
    list-style: none;
-   margin-top: 17%;
+   margin: -5px;
+   margin-top: 53%;
    transition: 0.5s;
+  
    transform: translate(0, 0px);
   }
   .social-icons>a>img:hover{
@@ -241,14 +246,14 @@
       
       
     </div>
-    <div class="input">
+    <!-- <div class="input">
       <label>Image Shape</label>
       <div class="select-container">
         <div class="select" id="original" selected onclick="changeShape('original')">Original</div>
         <div class="select" id="square" onclick="changeShape('square')">Square</div>
         
       </div>
-    </div>
+    </div> -->
     
     <div class="social-icons">
       <!-- social media links -->
@@ -287,22 +292,23 @@
 
   const changeShape = (type) => {
     const original = document.querySelector('.select-container .select#original')
-    const square = document.querySelector('.select-container .select#square')
-    shape = type
-    switch (type) {
-      case 'original': {
-        original.setAttribute('selected', '')
-        square.removeAttribute('selected')
+    // const square = document.querySelector('.select-container .select#square')
+    // shape = type
+    // square.setAttribute('selected', '')
+    // switch (type) {
+    //   case 'original': {
+    //     original.setAttribute('selected', '')
+    //     square.removeAttribute('selected')
 
-        break
-      }
-      case 'square': {
-        square.setAttribute('selected', '')
-        original.removeAttribute('selected')
+    //     break
+    //   }
+    //   case 'square': {
+       
+    //     original.removeAttribute('selected')
   
-        break
-      }
-    }
+    //     break
+    //   }
+    // }
     draw()
   }
 
@@ -331,30 +337,23 @@
     const category = document.querySelector('input.category-input').value || 'Category Name'
    
     if (image) {
-      switch (shape) {
-        case 'original': {
-          canvas.width = image.width
-          canvas.height = image.height
-          ctx.drawImage(image, 0, 0)
-          break
-        }
-        default: {
+    
           const size = Math.min ( image.width, image.height )
           canvas.width = 500
-          canvas.height = 500
+          canvas.height = 600
           const hRatio = canvas.width / image.width
           const vRatio = canvas.height / image.height
           const ratio  = Math.max ( hRatio, vRatio )
           const x = ( canvas.width - image.width * ratio ) / 2
           const y = ( canvas.height - image.height * ratio ) / 2
           ctx.drawImage(image, 0, 0, image.width, image.height, x, y, image.width * ratio, image.height * ratio)
-          break
-        }
-      }
+        
+      
+      
     }
     else {
       ctx.canvas.width = 500
-      ctx.canvas.height = 500
+      ctx.canvas.height = 600
       ctx.fillStyle = '#c0c0c0'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
     }
@@ -367,11 +366,42 @@
    //badge for milestone1
     if(category==='Milestone 1'){
       const badge=new Image()
-      badge.src='./badge1.svg'
+      badge.src='./badge1.svg.svg'
       const bheight=badge.height/badge.width*canvas.width
       const by=canvas.height-bheight
+      const bwidth=canvas.width-badge.width-100;
       badge.onload = function(){
-    ctx.drawImage(badge,0,0,100,100)
+    ctx.drawImage(badge,400,0,120,120)
+  }
+  }
+  if(category==='Milestone 2'){
+      const badge=new Image()
+      badge.src='./badge2.svg.svg'
+      const bheight=badge.height/badge.width*canvas.width
+      const by=canvas.height-bheight
+      const bwidth=canvas.width-badge.width-100;
+      badge.onload = function(){
+    ctx.drawImage(badge,400,0,120,120)
+  }
+  }
+  if(category==='Milestone 3'){
+      const badge=new Image()
+      badge.src='./badge3.svg.svg'
+      const bheight=badge.height/badge.width*canvas.width
+      const by=canvas.height-bheight
+      const bwidth=canvas.width-badge.width-100;
+      badge.onload = function(){
+    ctx.drawImage(badge,400,0,120,120)
+  }
+  }
+  if(category==='Ultimate Milestone'){
+      const badge=new Image()
+      badge.src='./badge4.svg.svg'
+      const bheight=badge.height/badge.width*canvas.width
+      const by=canvas.height-bheight
+      const bwidth=canvas.width-badge.width-100;
+      badge.onload = function(){
+    ctx.drawImage(badge,400,0,120,120)
   }
   }
     ctx.fillStyle = '#000'

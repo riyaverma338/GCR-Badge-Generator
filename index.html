@@ -87,7 +87,8 @@
     margin-top: 15px;
     padding: 10px 12px;
     box-shadow: var(--shadow-elevation-1);
-    background-color: var(--button-color);
+    background-color:var(--button-color);
+    background-color: rgb(51, 51, 51);
     cursor: pointer;
     border: none;
     transition: box-shadow 100ms ease, background-color 100ms ease;
@@ -162,7 +163,7 @@
     border-radius: 50%;
     width: 64px;
     height: 64px;
-    background-color: #2979ff;
+    background-color: rgb(51, 51, 51);
     box-shadow: var(--shadow-elevation-1);
     transition: background-color 100ms ease, box-shadow 100ms ease;
   }
@@ -173,10 +174,29 @@
   }
 .title>span.GCR{
   font-weight: 600;
+        animation: colorRotate 6s linear 0s infinite;
+}
+@keyframes colorRotate {
+  from {
+    color: #4285F4;
+  }
+  10% {
+    color: #DB4437;
+  }
+  50% {
+    color: #F4B400;
+  }
+  75% {
+    color: #0F9D58;
+  }
+  100% {
+    color: #6666ff;
+  }
 }
 .social-icons{
-  text-align: center;
+  text-align: left;
   margin-bottom: 25px;
+
 }
 .social-icons>a>img {
    width: 40px;
@@ -412,16 +432,16 @@
     //change the color
 
     if(document.querySelector('input.category-input').value ==='Milestone 1'){
-      ctx.fillStyle='#2979ff'
+      ctx.fillStyle='#4285F4'
     }
     else if(document.querySelector('input.category-input').value ==='Milestone 2'){
-      ctx.fillStyle='#FFBF00'
+      ctx.fillStyle='#DB4437'
     }
     else if(document.querySelector('input.category-input').value ==='Milestone 3'){
-      ctx.fillStyle='#FF0000'
+      ctx.fillStyle='#F4B400'
     }
     else if(document.querySelector('input.category-input').value ==='Ultimate Milestone'){
-      ctx.fillStyle='#008000'
+      ctx.fillStyle='#0F9D58'
     }
 
     ctx.fillText(category, canvas.width / 2.6, fontY)

@@ -328,7 +328,7 @@
   }
 
   const banner = new Image()
-  banner.src = './dcelogo.svg'
+  banner.src = './dcelogo6.svg'
   banner.onload = () => {
     draw()
   }
@@ -360,8 +360,8 @@
 
     const height = banner.height / banner.width * canvas.width
     const y = canvas.height - height
-    const fontSize = canvas.width / 17
-    const fontY = y + height * 0.5
+    const fontSize = canvas.width / 15
+    const fontY = y + height * 0.4
     ctx.drawImage(banner, 0, 0, banner.width, banner.height, 0, y, canvas.width, height)
    //badge for milestone1
     if(category==='Milestone 1'){
@@ -406,7 +406,7 @@
   }
     ctx.fillStyle = '#000'
     ctx.textAlign = 'left'
-    ctx.textBaseline = 'middle'
+    ctx.textBaseline = 'right'
     ctx.font = `${fontSize}px  'Lora', serif` 
 
     //change the color
@@ -424,7 +424,7 @@
       ctx.fillStyle='#008000'
     }
 
-    ctx.fillText(category, canvas.width / 2, fontY)
+    ctx.fillText(category, canvas.width / 2.6, fontY)
 
     if (shape === 'circle') {
       ctx.globalCompositeOperation='destination-in'

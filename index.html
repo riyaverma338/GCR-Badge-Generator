@@ -96,7 +96,7 @@
 
   .button:hover {
     box-shadow: var(--shadow-elevation-2);
-    background-color: var(--button-color-hover);
+    background-color: rgb(102, 101, 101);
   }
 
   input.category-input {
@@ -169,7 +169,7 @@
   }
 
   .download-fab:hover {
-    background-color: #3580fd;
+    background-color: rgb(102, 101, 101);
     box-shadow: var(--shadow-elevation-2);
   }
 .title>span.GCR{
@@ -203,7 +203,7 @@
    height: 40px;
    list-style: none;
    margin: -5px;
-   margin-top: 53%;
+   margin-top: 0%;
    transition: 0.5s;
   
    transform: translate(0, 0px);
@@ -211,7 +211,12 @@
   .social-icons>a>img:hover{
   transform: rotate(0deg) skew(0deg) translate(0, -10px);
 }
-
+.footer-txt{
+margin-top: 51%;
+font-size: 19px;
+color: #0073e6;
+margin-bottom: 10px;
+}
 
   @media screen and (max-width: 860px) {
     header {
@@ -274,7 +279,7 @@
         
       </div>
     </div> -->
-    
+    <h3 class="footer-txt">Let's connect! ❤️</h3>
     <div class="social-icons">
       <!-- social media links -->
       <a href="https://github.com/riyaverma338"><img src="./github logo.png"style="height:100px;width:100px;"alt="github" ></a>
@@ -355,7 +360,7 @@
 
   const draw = () => {
     const category = document.querySelector('input.category-input').value || 'Category Name'
-   
+    const nextword="achieved!";
     if (image) {
     
           const size = Math.min ( image.width, image.height )
@@ -424,6 +429,9 @@
     ctx.drawImage(badge,400,0,120,120)
   }
   }
+  const afontSize = canvas.width / 20;
+  const afontY = y + height * 0.59;
+
     ctx.fillStyle = '#000'
     ctx.textAlign = 'left'
     ctx.textBaseline = 'right'
@@ -433,19 +441,31 @@
 
     if(document.querySelector('input.category-input').value ==='Milestone 1'){
       ctx.fillStyle='#4285F4'
+      ctx.fillText(category, canvas.width / 2.6, fontY)
+      ctx.fillText(nextword,canvas.width/2.5,afontY)
     }
     else if(document.querySelector('input.category-input').value ==='Milestone 2'){
       ctx.fillStyle='#DB4437'
+      ctx.fillText(category, canvas.width / 2.6, fontY)
+      ctx.fillText(nextword,canvas.width/2.5,afontY)
     }
     else if(document.querySelector('input.category-input').value ==='Milestone 3'){
       ctx.fillStyle='#F4B400'
+      ctx.fillText(category, canvas.width / 2.6, fontY)
+      ctx.fillText(nextword,canvas.width/2.5,afontY)
     }
     else if(document.querySelector('input.category-input').value ==='Ultimate Milestone'){
       ctx.fillStyle='#0F9D58'
+      ctx.textAlign = 'left'
+      const fontY = y + height * 0.3
+
+      const afontY = y + height * 0.51;
+      ctx.fillText(category, canvas.width / 2.6, fontY)
+      ctx.fillText(nextword,canvas.width/2,afontY)
     }
 
-    ctx.fillText(category, canvas.width / 2.6, fontY)
-
+    
+    
     if (shape === 'circle') {
       ctx.globalCompositeOperation='destination-in'
       ctx.beginPath()
